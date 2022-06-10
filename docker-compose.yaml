@@ -1,19 +1,25 @@
 version: "3.8"
 
 services:
+  #Container 1
   server:
     image: 'nginx:stable-alpine'
     ports:
       -'8000:80'
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.con:ro
+  #Container 2
   php:
     build:
       context: ./dockerfiles
       dockerfile: php.dockerfile
     volumes:
       - ./src:/var/www/html:delegated
-  # mysql:
+  #Container 3
+  mysql:
+    image: mysql:5.7
+    env_file:
+      - ./env/mysql.env 
   # composer:
   # artisan:
   # npm:
