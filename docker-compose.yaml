@@ -22,9 +22,9 @@ services:
       - ./env/mysql.env
   #Container 4  Utility Conatiner 
   composer:
-    build:
+    build: 
       context: ./dockerfiles
-      dockerfile: composer.dockerfile
+      dockrfile: composer.dockerfile
     volumes:
       - ./src:/var/www/html
   # artisan:
